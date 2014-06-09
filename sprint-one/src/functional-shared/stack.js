@@ -20,8 +20,8 @@ stackMethods.push = function(value) {
 stackMethods.pop = function() {
     if (this._size > 0) {
         this._size--;
-        var result = this._storage[this._size]
-        this._size
+        var result = this._storage[this._size];
+        this._size;
     }
     return result
 };

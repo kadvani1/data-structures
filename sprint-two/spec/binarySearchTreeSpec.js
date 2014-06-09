@@ -33,8 +33,22 @@ describe('binarySearchTree', function() {
     var func = function(value){ array.push(value); };
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
-    // debugger;
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5,2,3]);
   });
+
+
+  it('should have a breadth-first approach', function(){
+    // breadthFirstLog() 
+    binarySearchTree.insert(7);
+    expect(binarySearchTree.contains(8)).to.equal(true);
+  });
+  
+  it('the max depth is more than twice the minimum depth', function(){
+    // breadthFirstLog() 
+    binarySearchTree.insert(7);
+    expect(binarySearchTree.contains(8)).to.equal(true);
+  });
+  // Make your binarySearchTree rebalance as soon as the max depth is more than twice the minimum depth.
+
 });

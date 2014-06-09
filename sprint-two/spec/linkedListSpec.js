@@ -52,4 +52,15 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should have methods named addToHead and removeTail', function() {
+    expect(linkedList.addToHead).to.be.a("function");
+    expect(linkedList.removeTail).to.be.a("function");
+  });
+  
+  it('each node object will need to have a new .previous property pointing to the node', function(){
+    linkedList.addToHead(5);
+    linkedList.addToHead(7);
+    expect(linkedList.next.previous.value).to.equal(5);
+  });
+
 });
