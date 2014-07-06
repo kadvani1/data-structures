@@ -10,6 +10,13 @@ var makeLinkedList = function(){
     var newNode = makeNode(value);
     // initialize the head or add a reference from the old tail to the new tail
     list.head === null ? list.head = newNode : list.tail.next = newNode;
+    if ( list.head === null ) {
+      list.head = newNode;
+    }else{
+      // old tail gets assigned a previous prop in the new node
+      list.tail = newNode.previous;
+      list.tail.next = newNode;
+    }
     // set up the new tail
     list.tail = newNode;
   };
@@ -22,6 +29,16 @@ var makeLinkedList = function(){
     // delete/disassociate the old head value somehow?
     return headValue;
   };
+  
+  list.removeTail = function(){
+    // store the value of the old head
+    var tailValue = list.tail.value;
+    // set up the new tail
+    list.tail = list.tail.previous;
+    // delete/disassociate the old head value somehow?
+    return tailValue;
+  };
+
 
   list.contains = function(target){
     // start searching with the first node
@@ -44,8 +61,8 @@ var makeLinkedList = function(){
 var makeNode = function(value){
   var node = {};
   node.value = value;
+  node.previous = null;
   node.next = null;
-
   return node;
 };
 
